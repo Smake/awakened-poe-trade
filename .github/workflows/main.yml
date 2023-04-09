@@ -47,26 +47,10 @@ jobs:
       working-directory: ./main
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: фыв
+        path: ./main/dist
+        retention-days: 1
     - name: Hash
       run: type .\main\dist\latest.yml
-
-  linux:
-    needs: renderer
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-    - uses: actions/download-artifact@v3
-      with:
-        name: renderer-dist
-        path: ./renderer/dist
-    - run: yarn --frozen-lockfile
-      working-directory: ./main
-    - run: yarn build
-      working-directory: ./main
-    - run: yarn package -p onTagOrDraft
-      working-directory: ./main
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Hash
-      run: cat ./main/dist/latest-linux.yml
