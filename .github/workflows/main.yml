@@ -39,7 +39,7 @@ jobs:
       with:
         name: renderer-dist
         path: ./renderer/dist
-    - run: yarn --frozen-lockfile
+    - run: yarn 
       working-directory: ./main
     - run: yarn build
       working-directory: ./main
