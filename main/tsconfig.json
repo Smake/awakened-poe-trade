@@ -6,6 +6,5 @@
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "noImplicitAny": false
   }
 }
