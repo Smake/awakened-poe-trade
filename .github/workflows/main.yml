@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
-    - run: yarn --frozen-lockfile
+    - run: yarn 
       working-directory: ./renderer
     - run: yarn make-index-files
       working-directory: ./renderer
@@ -40,7 +40,7 @@ jobs:
       with:
         name: renderer-dist
         path: ./renderer/dist
-    - run: yarn --frozen-lockfile
+    - run: yarn
       working-directory: ./main
     - run: yarn build
       working-directory: ./main
@@ -66,7 +66,7 @@ jobs:
       with:
         name: renderer-dist
         path: ./renderer/dist
-    - run: yarn --frozen-lockfile
+    - run: yarn 
       working-directory: ./main
     - run: yarn build
       working-directory: ./main
