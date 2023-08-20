@@ -29,7 +29,9 @@ export class GameWindow extends EventEmitter {
   constructor () {
     super()
   }
-
+  
+let window: Electron.BrowserWindow;
+  
   attach (window: BrowserWindow | undefined, title: string) {
     if (!this._isTracking) {
       OverlayController.events.on('focus', () => { this.isActive = true })
