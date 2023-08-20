@@ -5,6 +5,7 @@ import { OverlayController, AttachEvent } from 'electron-overlay-window'
 export interface GameWindow {
   on: (event: 'active-change', listener: (isActive: boolean) => void) => this
 }
+let window: Electron.BrowserWindow;
 export class GameWindow extends EventEmitter {
   private _isActive = false
   private _isTracking = false
@@ -31,7 +32,6 @@ export class GameWindow extends EventEmitter {
   }
     
   attach (window: BrowserWindow | undefined, title: string) {
-    window.destroy()
     if (!this._isTracking) {
       OverlayController.events.on('focus', () => { this.isActive = true })
       OverlayController.events.on('blur', () => { this.isActive = false })
