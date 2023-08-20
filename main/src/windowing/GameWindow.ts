@@ -30,7 +30,7 @@ export class GameWindow extends EventEmitter {
     super()
   }
   
-let window: Electron.BrowserWindow;
+let window: Electron.BrowserWindow
   
   attach (window: BrowserWindow | undefined, title: string) {
     if (!this._isTracking) {
